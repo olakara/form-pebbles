@@ -1,5 +1,7 @@
 import Form from './components/Form';
 import FormInput from './components/FormInput';
+import Button from './components/Button';
+import FormButtons from './components/FormButtons';
 
 function App() {
   const initialValues = {
@@ -50,16 +52,27 @@ function App() {
   };
 
   return (
-    <div className="bg-white py-16 px-4 overflow-hidden sm:px-6 lg:px-8 lg:py-24">
-      <Form submit={submit} initialValues={initialValues}>
-        <FormInput options={nameOptions} />
-        <FormInput options={passOptions} />
-        <FormInput options={emailOptions} />
-        <FormInput options={dobOptions} />
-      </Form>
+    <div className="py-10">
+      <header className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
+          <div className="ml-4 mt-2">
+            <h1 className="text-3xl font-bold leading-tight text-gray-900">A basic form</h1>
+          </div>
+        </div>
+      </header>
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Form submit={submit} initialValues={initialValues}>
+          <FormInput options={nameOptions} />
+          <FormInput options={passOptions} />
+          <FormInput options={emailOptions} />
+          <FormInput options={dobOptions} />
+          <FormButtons>
+            <Button label="Submit" onClick={submit} />
+          </FormButtons>
+        </Form>
 
-      {/* Another Example */}
-      {/* <Form submit={submit} initialValues={initialValues}>
+        {/* Another Example */}
+        {/* <Form submit={submit} initialValues={initialValues}>
         <div className="grid lg:grid-cols-4 gap-4 sm:grid-cols-1">
           <div>
             <FormInput label="Full Name" id="name1" name="name" type="text" />
@@ -75,6 +88,7 @@ function App() {
           </div>
         </div>
       </Form> */}
+      </main>
     </div>
   );
 }

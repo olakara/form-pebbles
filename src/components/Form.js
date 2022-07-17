@@ -5,7 +5,7 @@ export const FormContext = React.createContext({
 });
 
 function Form(props) {
-  const { children, submit = () => {}, initialValues } = props;
+  const { children, initialValues } = props;
 
   const [form, setForm] = useState(initialValues);
 
@@ -19,7 +19,7 @@ function Form(props) {
   };
 
   return (
-    <form className="space-y-6">
+    <form className="space-y-8 divide-y divide-gray-200">
       <FormContext.Provider
         value={{
           form,
@@ -28,14 +28,6 @@ function Form(props) {
       >
         {children}
       </FormContext.Provider>
-
-      <button
-        type="button"
-        onClick={() => submit(form)}
-        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white disabled:bg-gray-500 bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-      >
-        Submit
-      </button>
     </form>
   );
 }
